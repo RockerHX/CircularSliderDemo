@@ -7,7 +7,6 @@
 //
 
 #import "HXSectorSlider.h"
-#import "HXBezierCalculate.h"
 
 
 static CGFloat        ArcLineWidth      = 4.0f;
@@ -19,6 +18,10 @@ static NSTimeInterval AnimationDuration = 0.2f;
 @implementation HXSectorSlider {
     CAShapeLayer *_arcLayer;
     UIView       *_sliderView;
+    
+    CGPoint  _startPoint;
+    CGPoint  _endPoint;
+    CGPoint  _controlPoint;
     
     CGPoint  _point1;
     CGPoint  _point2;
@@ -58,7 +61,9 @@ static NSTimeInterval AnimationDuration = 0.2f;
     [path addQuadCurveToPoint:endPoint controlPoint:controlPoint];
     _arcLayer.path = path.CGPath;
     
-    [HXBezierCalculate instanceWithStartPoint:startPoint endPoint:endPoint controlPoint:controlPoint];
+    _startPoint = startPoint;
+    _endPoint = endPoint;
+    _controlPoint = controlPoint;
     [self hanleSectionPoint];
 }
 
@@ -76,6 +81,8 @@ static NSTimeInterval AnimationDuration = 0.2f;
     
     _arcColor = [UIColor colorWithWhite:0.5f alpha:0.5f];
     _sliderColor = [UIColor whiteColor];
+    
+    self.clipsToBounds = YES;
 }
 
 - (void)viewConfigure {
@@ -142,20 +149,18 @@ static NSTimeInterval AnimationDuration = 0.2f;
 
 #pragma mark - Private Methods
 - (void)hanleSectionPoint {
-    HXBezierCalculate *calculate = [HXBezierCalculate instance];
     NSInteger sectionWidth = self.bounds.size.width / 6;
-    _point1 = [calculate pointOnArcWithX:sectionWidth];
-    _point2 = [calculate pointOnArcWithX:sectionWidth*2];
-    _point3 = [calculate pointOnArcWithX:sectionWidth*3];
-    _point4 = [calculate pointOnArcWithX:sectionWidth*4];
-    _point5 = [calculate pointOnArcWithX:sectionWidth*5];
+    _point1 = [self pointOnArcWithX:sectionWidth];
+    _point2 = [self pointOnArcWithX:sectionWidth*2];
+    _point3 = [self pointOnArcWithX:sectionWidth*3];
+    _point4 = [self pointOnArcWithX:sectionWidth*4];
+    _point5 = [self pointOnArcWithX:sectionWidth*5];
     
     _sliderView.center = _point1;
 }
 
 - (void)moveHandleWithPoint:(CGPoint)point {
-    HXBezierCalculate *calculate = [HXBezierCalculate instance];
-    _sliderView.center = [calculate pointOnArcWithX:point.x];
+    _sliderView.center = [self pointOnArcWithX:point.x];
 }
 
 - (void)moveEndWithPoint:(CGPoint)point {
@@ -179,6 +184,12 @@ static NSTimeInterval AnimationDuration = 0.2f;
     [UIView animateWithDuration:_animationDuration animations:^{
         _sliderView.center = endPoint;
     }];
+}
+
+- (CGPoint)pointOnArcWithX:(CGFloat)x {
+    CGFloat t = (x / (_endPoint.x - _startPoint.x));
+    CGFloat pointY = (pow((1 - t), 2) * _startPoint.y) + ((2 * t) * (1 - t) * _controlPoint.y) + (pow(t, 2) * _endPoint.y);
+    return CGPointMake(x, pointY);
 }
 
 @end

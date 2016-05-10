@@ -14,7 +14,6 @@
 		CD1359D01CD368150036B7E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD1359CF1CD368150036B7E4 /* Assets.xcassets */; };
 		CD1359D31CD368150036B7E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1359D11CD368150036B7E4 /* LaunchScreen.storyboard */; };
 		CD1359DC1CD36CA60036B7E4 /* HXSectorSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1359DB1CD36CA60036B7E4 /* HXSectorSlider.m */; };
-		CDBCFAF11CE094C90045946F /* HXBezierCalculate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBCFAF01CE094C90045946F /* HXBezierCalculate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +29,6 @@
 		CD1359D41CD368150036B7E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD1359DA1CD36CA60036B7E4 /* HXSectorSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXSectorSlider.h; sourceTree = "<group>"; };
 		CD1359DB1CD36CA60036B7E4 /* HXSectorSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXSectorSlider.m; sourceTree = "<group>"; };
-		CDBCFAEF1CE094C90045946F /* HXBezierCalculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXBezierCalculate.h; sourceTree = "<group>"; };
-		CDBCFAF01CE094C90045946F /* HXBezierCalculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXBezierCalculate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +65,6 @@
 				CD1359C71CD368150036B7E4 /* AppDelegate.m */,
 				CD1359C91CD368150036B7E4 /* ViewController.h */,
 				CD1359CA1CD368150036B7E4 /* ViewController.m */,
-				CDBCFAEF1CE094C90045946F /* HXBezierCalculate.h */,
-				CDBCFAF01CE094C90045946F /* HXBezierCalculate.m */,
 				CD1359DA1CD36CA60036B7E4 /* HXSectorSlider.h */,
 				CD1359DB1CD36CA60036B7E4 /* HXSectorSlider.m */,
 				CD1359CC1CD368150036B7E4 /* Main.storyboard */,
@@ -160,7 +155,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD1359CB1CD368150036B7E4 /* ViewController.m in Sources */,
-				CDBCFAF11CE094C90045946F /* HXBezierCalculate.m in Sources */,
 				CD1359C81CD368150036B7E4 /* AppDelegate.m in Sources */,
 				CD1359DC1CD36CA60036B7E4 /* HXSectorSlider.m in Sources */,
 				CD1359C51CD368150036B7E4 /* main.m in Sources */,
