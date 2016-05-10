@@ -94,6 +94,16 @@ static CGFloat OffsetY      = -20.0f;
     [_sliderView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizer:)]];
 }
 
+#pragma mark - Property
+- (void)setSliderRadius:(CGFloat)sliderRadius {
+    _sliderRadius = sliderRadius;
+    
+    CGRect frame = _sliderView.frame;
+    frame.size = CGSizeMake(sliderRadius * 2, sliderRadius * 2);
+    _sliderView.frame = frame;
+    _sliderView.layer.cornerRadius = sliderRadius;
+}
+
 #pragma mark - Event Reponse
 - (void)panGestureRecognizer:(UIPanGestureRecognizer* )panGesture {
     switch (panGesture.state) {
