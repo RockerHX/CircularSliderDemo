@@ -10,9 +10,10 @@
 #import "HXBezierCalculate.h"
 
 
-static CGFloat ArcLineWidth = 4.0f;
-static CGFloat SliderRadius = 15.0f;
-static CGFloat OffsetY      = -20.0f;
+static CGFloat        ArcLineWidth      = 4.0f;
+static CGFloat        SliderRadius      = 15.0f;
+static CGFloat        OffsetY           = -20.0f;
+static NSTimeInterval AnimationDuration = 0.2f;
 
 
 @implementation HXSectorSlider {
@@ -71,6 +72,7 @@ static CGFloat OffsetY      = -20.0f;
 - (void)initConfigure {
     _arcLineWidth = ArcLineWidth;
     _sliderRadius = SliderRadius;
+    _animationDuration = AnimationDuration;
     
     _arcColor = [UIColor colorWithWhite:0.5f alpha:0.5f];
     _sliderColor = [UIColor whiteColor];
@@ -159,7 +161,7 @@ static CGFloat OffsetY      = -20.0f;
     } else {
         endPoint = _point5;
     }
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:_animationDuration animations:^{
         _sliderView.center = endPoint;
     }];
 }
