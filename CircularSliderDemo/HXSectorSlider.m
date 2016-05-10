@@ -116,6 +116,11 @@ static NSTimeInterval AnimationDuration = 0.2f;
     _arcLayer.strokeColor = arcColor.CGColor;
 }
 
+- (void)setSliderColor:(UIColor *)sliderColor {
+    _sliderColor = sliderColor;
+    _sliderView.backgroundColor = sliderColor;
+}
+
 #pragma mark - Event Reponse
 - (void)panGestureRecognizer:(UIPanGestureRecognizer* )panGesture {
     switch (panGesture.state) {
