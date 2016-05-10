@@ -52,18 +52,15 @@ static NSTimeInterval AnimationDuration = 0.2f;
     
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height + OffsetY;
-    CGPoint startPoint = CGPointMake(0.0f, height);
-    CGPoint endPoint = CGPointMake(width, height);
-    CGPoint controlPoint = CGPointMake(width/2, height - width/5);
+    _startPoint = CGPointMake(-10.0f, height);
+    _endPoint = CGPointMake(width + 10.0f, height);
+    _controlPoint = CGPointMake(width/2, height - width/5);
     
     UIBezierPath *path = [UIBezierPath new];
-    [path moveToPoint:startPoint];
-    [path addQuadCurveToPoint:endPoint controlPoint:controlPoint];
+    [path moveToPoint:_startPoint];
+    [path addQuadCurveToPoint:_endPoint controlPoint:_controlPoint];
     _arcLayer.path = path.CGPath;
     
-    _startPoint = startPoint;
-    _endPoint = endPoint;
-    _controlPoint = controlPoint;
     [self hanleSectionPoint];
 }
 
