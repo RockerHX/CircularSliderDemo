@@ -97,6 +97,11 @@ static NSTimeInterval AnimationDuration = 0.2f;
 }
 
 #pragma mark - Property
+- (void)setArcLineWidth:(CGFloat)arcLineWidth {
+    _arcLineWidth = arcLineWidth;
+    _arcLayer.lineWidth = arcLineWidth;
+}
+
 - (void)setSliderRadius:(CGFloat)sliderRadius {
     _sliderRadius = sliderRadius;
     

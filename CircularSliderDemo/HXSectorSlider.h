@@ -11,8 +11,8 @@
 
 @interface HXSectorSlider : UIControl
 
-@property (nonatomic, assign)        CGFloat  sliderRadius;
 @property (nonatomic, assign)        CGFloat  arcLineWidth;
+@property (nonatomic, assign)        CGFloat  sliderRadius;
 @property (nonatomic, assign) NSTimeInterval  animationDuration;
 
 @property (nonatomic, strong) UIColor *arcColor;
