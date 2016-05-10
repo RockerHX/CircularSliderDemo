@@ -24,3 +24,5 @@ Pods
 *bin/
 *obj/
 Podfile.lock
+
+*.xcscheme
